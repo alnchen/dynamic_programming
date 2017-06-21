@@ -1,9 +1,13 @@
 class DynamicProgramming
   def initialize
-    
+
   end
 
   def blair_nums(n)
+
+    return 1 if n == 1
+    return 2 if n == 2
+    blair_nums(n-1) + blair_nums(n-2) + ((2 * n) - 3)
   end
 
   def frog_hops(n)
