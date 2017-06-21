@@ -8,10 +8,9 @@ class DynamicProgramming
     # return 1 if n == 1
     # return 2 if n == 2
     # blair_nums(n-1) + blair_nums(n-2) + ((2 * n) - 3)
-    return blair_cache[n] if @blair_cache[n]
-    val = blair_nums(n - 1) + blair_nums(n - 2) + ((2 * n) - 3)
-    blair_cache[n] = val
-    val
+    return @blair_cache[n] if @blair_cache[n]
+    val = blair_nums(n - 1) + blair_nums(n - 2) + ((2 * n) - 1)
+    @blair_cache[n] = val
   end
 
   def frog_hops(n)
