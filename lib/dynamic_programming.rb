@@ -1,5 +1,6 @@
 class DynamicProgramming
   def initialize
+    
   end
 
   def blair_nums(n)
