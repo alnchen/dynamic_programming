@@ -12,6 +12,7 @@ class DynamicProgramming
       2 => [[1, 1]],
       3 => [[1, 1], [2]]
     }
+    
   end
 
   def blair_nums(n)
@@ -25,6 +26,8 @@ class DynamicProgramming
   end
 
   def frog_hops(n)
+    # integer partitions = splitting up "steps"
+    # time complexity bounded by the number of integer partitions
     return if n >= 1000
     frog_cache_builder(n)
     @frog_cache[n]
@@ -45,61 +48,17 @@ class DynamicProgramming
   # end
 
   def super_frog_hops(n, k)
-    super_hops_cache_builder(k)
-    @super_frog_cache[n]
+
   end
 
   def super_hops_cache_builder(k)
-    #need to fix logic
-    2.upto(k).each do |j|
-      @super_frog_cache[j] = []
-      # 1.upto(j - 1).each do |i|
-      #   @super_frog_cache[j - i].each do |path|
-      #     @super_frog_cache[j] << path + [i]
-      #   end
-      # end
 
-      @super_frog_cache[j] << [j]
-    end
   end
 
   def make_change(amt, coins)
-    return [] if amt <= 0
-    return nil if coins.none? { |coin| coin == amt }
-    count = 0
 
-    coins.each_with_index do |coin, idx|
-      next if coin > amt
-
-      remainder = amt - coin
-      # new_remainder = make_change(remainder, coins.drop(idx))
-    end
-      # coins = coins.sort.reverse
-    #
-    # best_change = nil
-    # coins.each_with_index do |coin, index|
-    #   next if coin > amt
-    #
-    #   remainder = amt - coin
-    #
-    #   best_remainder = make_change(remainder, coins.drop(index))
-    #   next if best_remainder.nil?
   end
 
   def maze_solver(maze, start_pos, end_pos)
-    return [end_pos] if end_pos == start_pos
-    @maze_cache[start_pos] = true
-    spots = []
-    x,y = start_pos
-    if start_pos[0] + 1 != nil
-      x += 1
-      @maze_cache[x,y] = true
-    elsif start_pos[1] + 1 != nil
-      y += 1
-      @maze_cache[x,y] = true
-    else
-      # @maze_cache[x,y]
-    end
-    spots.sort_by(&:length).first
-  end
+
 end
